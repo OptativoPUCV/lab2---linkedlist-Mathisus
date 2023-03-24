@@ -2,3 +2,35 @@ Fri 24 Mar 2023 05:38:52 PM UTC:
  tests:  0|6
 total_score: 0/70
 eb0d38b
+Fri 24 Mar 2023 05:45:16 PM UTC: 
+ list.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘createList’:
+list.c:32:3: error: unknown type name ‘list’; did you mean ‘List’?
+   32 |   list* lista = (list*) malloc(sizeof(list));
+      |   ^~~~
+      |   List
+list.c:32:18: error: ‘list’ undeclared (first use in this function); did you mean ‘List’?
+   32 |   list* lista = (list*) malloc(sizeof(list));
+      |                  ^~~~
+      |                  List
+list.c:32:18: note: each undeclared identifier is reported only once for each function it appears in
+list.c:32:23: error: expected expression before ‘)’ token
+   32 |   list* lista = (list*) malloc(sizeof(list));
+      |                       ^
+list.c:33:8: error: request for member ‘head’ in something not a structure or union
+   33 |   lista->head = NULL;
+      |        ^~
+list.c:34:8: error: request for member ‘tail’ in something not a structure or union
+   34 |   lista->tail = NULL;
+      |        ^~
+list.c:35:8: error: request for member ‘current’ in something not a structure or union
+   35 |   lista->current = NULL;
+      |        ^~
+list.c:37:13: error: returning ‘int *’ from a function with incompatible return type ‘List *’ {aka ‘struct List *’} [-Werror=incompatible-pointer-types]
+   37 |      return lista;
+      |             ^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+1906b1d
