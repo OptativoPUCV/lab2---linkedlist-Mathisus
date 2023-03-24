@@ -134,7 +134,7 @@ void * popCurrent(List * list) {
     return NULL;
   }
   Node* aux = list->current;
-  Node* datoElim = list->current->data;
+  void* dData = list->current->data;
 
   if(aux == list->head)
   {
@@ -161,9 +161,13 @@ void * popCurrent(List * list) {
   {
     aux->next->prev = aux->prev;
   }
+
+  free(aux);
+  list->current = list->current->next;
+  return dData;
+  
 }
 
-free(aux);
 
 
 void cleanList(List * list) {
